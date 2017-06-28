@@ -7,7 +7,7 @@
 
 // Font variables
 $font-name: libretto-icons;
-$font-path-file-name: dieulamour.com/assets/fonts/$font-name/$font-name;
+$font-path-file-name: {{ site.baseurl }}/assets/fonts/$font-name/$font-name;
 
 @font-face {
     font-family: $font-name;
