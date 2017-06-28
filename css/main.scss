@@ -6,7 +6,7 @@
 
 
 // Font variables
-$font-name: 1px, bold;
+$font-name: libretto-icons;
 $font-path-file-name: {{ site.baseurl }}/assets/fonts/$font-name/$font-name;
 
 @font-face {
