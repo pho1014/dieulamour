@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Bacon ipsum"
+date:   2017-07-13 02:04:00 +0100
+thumbnail: diu2.jpg
+---
+
+Here's something I made.
+
+
+<figure>
+	<img src="{{ site.baseurl }}/assets/diu2.jpg" alt="image">
+	<figcaption>
+		One week of blender-learning well spent. On to rigging!
+	</figcaption>
+</figure>
