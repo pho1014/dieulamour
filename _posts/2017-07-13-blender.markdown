@@ -2,7 +2,7 @@
 layout: post
 title:  "First Post"
 date:   2017-08-24
-thumbnail:
+thumbnail: diu.jpg
 ---
 
 This blog will be used to keep track of my journey of learning to make VR games/applications with the following areas in focus:
@@ -17,7 +17,7 @@ Here's something I made in blender a while ago.
 
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/diu2.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/diu.jpg" alt="image">
 	<figcaption>
 		Weekend well wasted.
 	</figcaption>
