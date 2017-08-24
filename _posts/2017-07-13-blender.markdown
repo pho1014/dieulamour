@@ -1,16 +1,16 @@
 ---
 layout: post
-title:  "Bacon ipsum"
-date:   2017-07-13 02:04:00 +0100
-thumbnail: diu2.jpg
+title:  "First Post"
+date:   2017-08-24
+thumbnail:
 ---
 
-Here's something I made.
+This blog will be used to keep track of my journey of learning to make VR games/applications with the following areas in focus:
 
+1.) Blender modelling/rigging/animation
+2.) UE 4
+3.) General analysis/review of existing VR titles
 
-<figure>
-	<img src="{{ site.baseurl }}/assets/diu2.jpg" alt="image">
-	<figcaption>
-		One week of blender-learning well spent. On to rigging!
-	</figcaption>
-</figure>
+This will also serve as a devlog for my project: Apples & Butterflies. Which will involve basic animated characters, controller interactions and particle effects.
+
+Stay tune.
