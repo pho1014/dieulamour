@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "First Post"
+date:   2017-08-24
+thumbnail: diu.jpg
+---
+
+This blog will be used to keep track of my journey of learning to make VR games/applications with the following areas in focus:
+
+1.) Blender modelling/rigging/animation  
+2.) UE 4  
+3.) General analysis/review of existing VR titles  
+
+This will also serve as a devlog for my project: Apples & Butterflies. Which will involve basic animated characters, controller interactions and particle effects.  
+
+Here's something I made in blender a while ago.  
+
+
+<figure>
+	<img src="{{ site.baseurl }}/assets/diu.jpg" alt="image">
+	<figcaption>
+		Weekend well wasted.
+	</figcaption>
+</figure>
+
+Stay tuned.
