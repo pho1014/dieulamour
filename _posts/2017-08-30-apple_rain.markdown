@@ -8,7 +8,7 @@ thumbnail:
 
 Apple Rain is my pet project to commemorate the few surviving comfort women in WW2.  
 
-Since this is my first attempt at making a VR experience, I will try to keep it simple. 
+Since this is my first attempt at making a VR experience, I will try to keep it simple.
 Apple Rain will comprise of simple controller interactions with apples that "rain" from a mesh emitter.
 Upon the user picking up the apples, the apples will explode into butterflies which then will congregate to make up a part of the "peace statue".  
 
@@ -30,13 +30,13 @@ I then imported it to ue4 as a .fbx and the stem and apple were separated.
 I then went back to blender and ctrl+j to join the stem and apple into one mesh. The result was better.  
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog2/applejoin.jpg" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog2/a1.jpg" alt="image">
 </figure>  
 
 I managed to make a mesh emitter that rains apples that collide as they hit the floor. No problem there.  
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog2/apple_rain.jpg" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog2/a2.jpg" alt="image">
 	<figcaption>
 		It's raining apples!
 	</figcaption>
