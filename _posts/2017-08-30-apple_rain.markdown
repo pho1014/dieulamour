@@ -30,13 +30,13 @@ I then imported it to ue4 as a .fbx and the stem and apple were separated.
 I then went back to blender and ctrl+j to join the stem and apple into one mesh. The result was better.  
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog2/a1.jpg" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog2/a1.png" alt="image">
 </figure>  
 
 I managed to make a mesh emitter that rains apples that collide as they hit the floor. No problem there.  
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog2/a2.jpg" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog2/a2.png" alt="image">
 	<figcaption>
 		It's raining apples!
 	</figcaption>
