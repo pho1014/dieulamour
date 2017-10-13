@@ -24,7 +24,7 @@ I find that there was no need to actually model the sign itself but using loop-c
 I was pleased with the end result.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog3/pawn_sign_blender.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog3/pawn_sign_blender.jpg" alt="image">
 </figure>  
 
 
