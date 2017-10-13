@@ -9,7 +9,7 @@ thumbnail:
 Today I tried to recreate a typical Hong Kong style pawn shop sign using a jpeg.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog3/pawn_sign.jpg" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog3/pawn_sign.JPG" alt="image">
 	<figcaption>
 		Pawn Shop Sign
 	</figcaption>
