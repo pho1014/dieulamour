@@ -17,7 +17,7 @@ I started with chinese chess. This took me about a week.
 I managed to find a good online caligraphy generator and generated these pretty okay looking characters.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_characters.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_characters.PNG" alt="image">
 </figure> 
 
 I was relatively satisfied with these and I proceeded to model my chess piece, a few loop cuts on a cylinder and bevelled the edges, added a subsurf modifier and it came out okay.
