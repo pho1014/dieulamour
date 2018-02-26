@@ -1,12 +1,13 @@
 ---
 layout: post
-title:  "blog #5:Making Chinese Chess game for HKVR
-date:   2018-02-26
+title:  "blog #4:Attempt at UV mapping using photoshop + blender"
+date:   2017-10-19
 thumbnail: 
 ---
 
 
 I had the idea to make a "game room" for my HKVR project. It's probably gonna have a few classic Chinese tabletop games in different themed rooms.
+
 I started with chinese chess. This took me about a week.
 
 <figure>
