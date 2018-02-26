@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "blog #4:Attempt at UV mapping using photoshop + blender"
-date:   2017-10-19
+title:  "blog #5:Chinese Chess with Blender + AI + PS + UE4"
+date:   2018-02-26
 thumbnail: 
 ---
 
@@ -37,31 +37,31 @@ The best way is to mark the seam on the bottom, since I figured not a lot of peo
 Next step was to vectorize the caligraphied characters in illustrator and export the UV map of the chess piece to line things up on a nice wooden texture.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_uv.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_uv.PNG" alt="image">
 </figure> 
 
 Then I imported the chess piece into UE4 and made materials out of the textures made in AI along with normal and bump maps.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chess_mat_unreal.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chess_mat_unreal.PNG" alt="image">
 </figure> 
 
 After that was done I proceeded to make the chess board. I found a good reference on the web and drew over it in AI.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_board_drawning.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_board_drawning.PNG" alt="image">
 </figure> 
 
 I then protruded a flat square in blender to make a board and uv unwrap that and make my board texture.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chinese_chinese_chess_board_UV.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chinese_chinese_chess_board_UV.PNG" alt="image">
 </figure> 
 
 Imported the board into UE4 too and applied the materials made and voila!
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chess_board_pieces_unreal.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chess_board_pieces_unreal.PNG" alt="image">
 </figure> 
 
 Of course, I didn't forget to script the pieces so I can actually pick them up with my vive wand.Just used whatever script came stock with one of the VR startup maps. Physics had to be enabled on pieces too.
