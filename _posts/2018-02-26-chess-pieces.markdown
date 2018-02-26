@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "blog #5:Making Chinese Chess game for HKVR
-date:   2017-02-26
+date:   2018-02-26
 thumbnail: 
 ---
 
