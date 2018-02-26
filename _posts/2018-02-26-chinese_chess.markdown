@@ -43,19 +43,19 @@ Next step was to vectorize the caligraphied characters in illustrator and export
 Then I imported the chess piece into UE4 and made materials out of the textures made in AI along with normal and bump maps.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chess_mat_unreal.PNG" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chess_mat_unreal.png" alt="image">
 </figure> 
 
 After that was done I proceeded to make the chess board. I found a good reference on the web and drew over it in AI.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_board_drawning.PNG" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_board_drawning.png" alt="image">
 </figure> 
 
 I then protruded a flat square in blender to make a board and uv unwrap that and make my board texture.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chinese_chinese_chess_board_UV.PNG" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chinese_chess_board_UV.PNG" alt="image">
 </figure> 
 
 Imported the board into UE4 too and applied the materials made and voila!
@@ -67,13 +67,13 @@ Imported the board into UE4 too and applied the materials made and voila!
 Of course, I didn't forget to script the pieces so I can actually pick them up with my vive wand.Just used whatever script came stock with one of the VR startup maps. Physics had to be enabled on pieces too.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chess_pickup_script.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chess_pickup_script.PNG" alt="image">
 </figure> 
 
 Here's a closeup to really show of the bumps on the texture.
 
 <figure>
-	<img src="{{ site.baseurl }}/assets/blog5/chess_board_piece_tool_close.png" alt="image">
+	<img src="{{ site.baseurl }}/assets/blog5/chess_board_piece_tool_close.PNG" alt="image">
 </figure> 
 
 Credits to Koana for having much patience to teach this PS/AI n00b! Next I should work on flight chess/mahjong...
