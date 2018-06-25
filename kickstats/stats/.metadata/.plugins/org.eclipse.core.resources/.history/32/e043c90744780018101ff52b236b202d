@@ -1,0 +1,201 @@
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Round {
+	private ArrayList<Kick> mKicks = new ArrayList<Kick>();
+	private int mRoundNumber;
+	private String mFightID;
+	private DecimalFormat df = new DecimalFormat("####0.00");
+	
+	public static void main(String args[]) {
+		Round r = new Round();
+		
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 5);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 4);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 3);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 2);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), false);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), false);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), false);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), false);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), false);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BK, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.RA, Action.Agg.ATTACK), true, 20);
+		
+		
+		for(int i = 0; i < r.getmKicks().size(); i++)
+		{
+			System.out.println(r.getmKicks().get(i).toString());
+		}
+		System.out.println("Number of " + Action.getKickName(Action.Tech.BL) + ": " + r.getKickCountByTech(Action.Tech.BL));
+		System.out.println("Percentage of " + Action.getKickName(Action.Tech.BL) + ": " + r.getKickPercentage(Action.Tech.BL));
+		System.out.println("Number of kicks landed: " + r.getContactedKickCount());
+		System.out.println("Percentage of kicks landed: " + r.getContactedKickPercentage());
+		System.out.println("Score this round: " + r.getRoundScore());
+		r.getMostDominantKick();
+		r.getHighestScoringKick();
+		
+		
+		
+		
+	}
+	
+	public void addKick(Action action, Boolean hit, int pts) {
+		Kick k = new Kick(action, hit, pts);
+		getmKicks().add(k);
+	}
+	
+	public void addKick(Action action, Boolean hit) {
+		Kick k = new Kick(action, false, 0);
+		getmKicks().add(k);
+	}
+	
+	public int getKickCountByTech(Action.Tech tech) {
+		int count = 0;
+		for(Kick kick:this.getmKicks()) {
+			if(kick.getmAction().getmTechnique().equals(tech)) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public int getContactedKickCount() {
+		int count = 0;
+		for(Kick kick:this.getmKicks()) {
+			if(kick.getmContact() == true) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public String getContactedKickPercentage() {
+		String percent = df.format((this.getContactedKickCount()/(double)this.getmKicks().size())*100);
+		return percent + "%";
+	}
+	
+	public String getKickPercentage(Action.Tech tech) {
+		String percent = df.format((getKickCountByTech(tech)/(double)this.getmKicks().size())*100);
+		return percent + "%";
+	}
+	
+	public int getRoundScore() {
+		int score = 0;
+		for(int i = 0; i < this.getmKicks().size(); i++) {
+			score = score + this.getmKicks().get(i).getmScore();
+		}
+		return score;
+	}
+	
+	public void getMostDominantKick()
+	{
+		ArrayList<Boolean> isRemovedList = new ArrayList<Boolean>();
+		ArrayList<Kick> calculatedKickArray = new ArrayList<Kick>();
+		ArrayList<Integer> kickAmountArray = new ArrayList<Integer>();
+		int count = 1;
+		
+		for(Kick kick: this.getmKicks()) 
+		{
+			isRemovedList.add(false);
+		}
+		
+		for(int i = 0; i < getmKicks().size(); i++) 
+		{
+			if(isRemovedList.get(i)==false) 
+			{
+				Kick kick1 = getmKicks().get(i);
+				isRemovedList.set(i, true);
+					
+				for(int j = i+1; j < getmKicks().size(); j++) 
+				{
+					Kick kick2 = getmKicks().get(j);
+					if(kick1.getmAction().toString().equals(kick2.getmAction().toString()) && (isRemovedList.get(j)==false)) 
+					{
+						isRemovedList.set(j, true);
+						count++;
+					}
+				}
+				calculatedKickArray.add(kick1);
+				kickAmountArray.add(count);
+				count = 1;
+			}
+		}
+		
+		for(int i = 0; i < kickAmountArray.size(); i++) 
+		{
+			if(kickAmountArray.get(i) == Collections.max(kickAmountArray)) 
+			{
+				System.out.println("Your most dominant kick is: " + calculatedKickArray.get(i).getmAction().toString());
+				System.out.println("It was used " + kickAmountArray.get(i) + " times");
+				System.out.println("");
+			}
+		}
+	}
+	
+	public void getHighestScoringKick()
+	{
+		ArrayList<Boolean> isRemovedList = new ArrayList<Boolean>();
+		ArrayList<Kick> calculatedKickArray = new ArrayList<Kick>();
+		ArrayList<Integer> kickScoreArray = new ArrayList<Integer>();
+		int count = 1;
+		int score = 0;
+		
+		for(Kick kick: this.getmKicks()) 
+		{
+			isRemovedList.add(false);
+		}
+		
+		for(int i = 0; i < getmKicks().size(); i++) 
+		{
+			if(isRemovedList.get(i)==false) 
+			{
+				Kick kick1 = getmKicks().get(i);
+				isRemovedList.set(i, true);
+				score = getmKicks().get(i).getmScore();
+					
+				for(int j = i+1; j < getmKicks().size(); j++) 
+				{
+					Kick kick2 = getmKicks().get(j);
+					
+					
+					if(kick1.getmAction().toString().equals(kick2.getmAction().toString()) && (isRemovedList.get(j)==false)) 
+					{
+						isRemovedList.set(j, true);
+						count++;
+						score = score + kick2.getmScore();
+					}
+				}
+				calculatedKickArray.add(kick1);
+				kickScoreArray.add(score);
+				count = 1;
+				score = 0;
+			}
+		}
+		
+		for(int i = 0; i < kickScoreArray.size(); i++) 
+		{
+			if(kickScoreArray.get(i) == Collections.max(kickScoreArray)) 
+			{
+				System.out.println("Your highest scoring kick is: " + calculatedKickArray.get(i).getmAction().toString());
+				System.out.println("It scored " + kickScoreArray.get(i) + " points");
+				System.out.println("");
+			}
+		}
+	}
+	
+	public ArrayList<Kick> getmKicks() {
+		return this.mKicks;
+	}
+}

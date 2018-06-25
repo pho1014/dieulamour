@@ -1,0 +1,172 @@
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Round {
+	private ArrayList<Kick> mKicks = new ArrayList<Kick>();
+	private int mRoundNumber;
+	private String mFightID;
+	private DecimalFormat df = new DecimalFormat("####0.00");
+	
+	public static void main(String args[]) {
+		Round r = new Round();
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.S, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.BLCr, Kick.Agg.COUNTER, true, 2);
+		r.addKick(Kick.Move.SU, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.RCr, Kick.Agg.COUNTER, true, 6);
+		r.addKick(Kick.Move.OTS, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.JT, Kick.Agg.COUNTER, true, 8);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.S, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.SH, Kick.Agg.COUNTER, false);
+		r.addKick(Kick.Move.S, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.FF, Kick.Agg.COUNTER, true);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.S, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.BLCr, Kick.Agg.COUNTER, true, 2);
+		r.addKick(Kick.Move.SU, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.RCr, Kick.Agg.COUNTER, true, 6);
+		r.addKick(Kick.Move.OTS, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.JT, Kick.Agg.COUNTER, true, 8);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		r.addKick(Kick.Move.S, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.SH, Kick.Agg.COUNTER, false);
+		r.addKick(Kick.Move.S, Kick.Side.LEFT, Kick.Area.BODY, Kick.Tech.FF, Kick.Agg.COUNTER, true);
+		r.addKick(Kick.Move.SO, Kick.Side.LEFT, Kick.Area.HEAD, Kick.Tech.BK, Kick.Agg.COUNTER, true, 5);
+		
+		for(int i = 0; i < r.getmKicks().size(); i++)
+		{
+			System.out.println(r.getmKicks().get(i).toString());
+		}
+		System.out.println("Number of " + Kick.getKickName(Kick.Tech.BK) + ": " + r.getKickCountByTech(Kick.Tech.BK));
+		System.out.println("Percentage of " + Kick.getKickName(Kick.Tech.BK) + ": " + r.getKickPercentage(Kick.Tech.BK));
+		System.out.println("Number of kicks landed: " + r.getContactedKickCount());
+		System.out.println("Percentage of kicks landed: " + r.getContactedKickPercentage());
+		System.out.println("Score this round: " + r.getRoundScore());
+		r.getMostDominantKick();
+		
+		
+		
+		
+	}
+	
+	public void addKick(Kick.Move mv, Kick.Side side, Kick.Area ar, Kick.Tech tech, Kick.Agg agg, Boolean hit, int pts) {
+		Kick k = new Kick(mv, side, ar, tech, agg, hit, pts);
+		getmKicks().add(k);
+	}
+	
+	public void addKick(Kick.Move mv, Kick.Side side, Kick.Area ar, Kick.Tech tech, Kick.Agg agg, Boolean hit) {
+		Kick k = new Kick(mv, side, ar, tech, agg, false, 0);
+		getmKicks().add(k);
+	}
+	
+	public int getKickCountByTech(Kick.Tech tech) {
+		int count = 0;
+		for(Kick kick:this.getmKicks()) {
+			if(kick.getmTechnique().equals(tech)) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public int getContactedKickCount() {
+		int count = 0;
+		for(Kick kick:this.getmKicks()) {
+			if(kick.ismContact() == true) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public String getContactedKickPercentage() {
+		String percent = df.format((this.getContactedKickCount()/(double)this.getmKicks().size())*100);
+		return percent + "%";
+	}
+	
+	public String getKickPercentage(Kick.Tech tech) {
+		String percent = df.format((getKickCountByTech(tech)/(double)this.getmKicks().size())*100);
+		return percent + "%";
+	}
+	
+	public int getRoundScore() {
+		int score = 0;
+		for(int i = 0; i < this.getmKicks().size(); i++) {
+			score = score + this.getmKicks().get(i).getmPoints();
+		}
+		return score;
+	}
+	
+	public void getMostDominantKick()
+	{
+		ArrayList<Integer> indexArray = new ArrayList<Integer>();
+		ArrayList<Kick> tempKicks = new ArrayList<Kick>();
+		ArrayList<Boolean> isRemovedList = new ArrayList<Boolean>();
+		ArrayList<Kick> calculatedKickArray = new ArrayList<Kick>();
+		ArrayList<Integer> kickAmountArray = new ArrayList<Integer>();
+		int amount = 0;
+	
+		int count = 0;
+		
+		for(Kick kick: this.getmKicks()) 
+		{
+			tempKicks.add(kick);
+			isRemovedList.add(false);
+		}
+		
+	
+		
+			for(int i = 0; i < tempKicks.size(); i++) 
+			{
+				if(isRemovedList.get(i)==false) 
+				{
+					Kick kick1 = tempKicks.get(i);
+					isRemovedList.set(i, true);
+					indexArray.add(tempKicks.indexOf(kick1));
+					//System.out.println(isRemovedList.get(i));
+						
+					for(int j = i+1; j < tempKicks.size(); j++) 
+					{
+						Kick kick2 = tempKicks.get(j);
+						if(kick1.toString().equals(kick2.toString()) && (isRemovedList.get(j)==false)) 
+						{
+							isRemovedList.set(j, true);
+							indexArray.add(tempKicks.indexOf(kick2));
+							
+						}
+					}
+					//System.out.println(indexArray.toString());
+					//System.out.println(isRemovedList.toString());
+					count = indexArray.size();
+					calculatedKickArray.add(kick1);
+					kickAmountArray.add(count);
+					//System.out.println(kick1.toString() + count);
+					
+					//initialize both
+					count = 0;
+					indexArray.clear();
+				}
+			}
+			
+			amount = Collections.max(kickAmountArray);
+			for(int i = 0; i < kickAmountArray.size(); i++) 
+			{
+				if(kickAmountArray.get(i) == Collections.max(kickAmountArray)) 
+				{
+					System.out.println(calculatedKickArray.get(i).toString() + kickAmountArray.get(i));
+				}
+			}
+			
+		
+			
+		
+	}
+	
+	getHighestScoringKick(){
+		
+	}
+	
+	public ArrayList<Kick> getmKicks() {
+		return this.mKicks;
+	}
+}

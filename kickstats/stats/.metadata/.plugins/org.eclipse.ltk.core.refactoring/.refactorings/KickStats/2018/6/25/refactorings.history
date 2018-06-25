@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Round.getKickCount(...)&apos; to &apos;getKickCountByTech&apos;&#x0D;&#x0A;- Original project: &apos;KickStats&apos;&#x0D;&#x0A;- Original element: &apos;Round.getKickCount(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;Round.getKickCountByTech(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;getKickCount&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{Round.java[Round~getKickCount~QKick.Tech;" name="getKickCountByTech" references="true" stamp="1529492799087" version="1.0"/>
+</session>

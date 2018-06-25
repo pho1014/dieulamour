@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;Kick.getKick(...)&apos; to &apos;getKickName&apos;&#x0D;&#x0A;- Original project: &apos;KickStats&apos;&#x0D;&#x0A;- Original element: &apos;Kick.getKick(...)&apos;&#x0D;&#x0A;- Renamed element: &apos;Kick.getKickName(...)&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;getKick&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;{Kick.java[Kick~getKick~QType;" name="getKickName" references="true" stamp="1526232620012" version="1.0"/>
+</session>

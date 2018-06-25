@@ -1,0 +1,186 @@
+
+public class Action {
+	public enum Side
+	{
+		LEFT,
+		RIGHT
+	};
+	
+	public enum Area
+	{
+		HEAD,
+		BODY
+	};
+	
+	public enum Tech
+	{
+		BL,
+		BLA,
+		BLCu,
+		BLCr,
+		RK,
+		RA,
+		FF,
+		RCu,
+		RCr,
+		SH,
+		JT,
+		BK
+	};
+	
+	public enum Agg
+	{
+		ATTACK,
+		COUNTER
+	};
+	
+	public enum Move
+	{
+		II,
+		IO,
+		OTS,
+		S,
+		SU,
+		SO
+	};
+	
+	
+	private Move mMovement;
+	private Side mSide;
+	private Area mTarget;
+	private Tech mTechnique;
+	private Agg mAggression; 
+	
+	
+
+	public static String getMoveName(Move mv) {
+		String name = "";
+		Move move = mv;
+		switch (move) {
+        case II:  name = "INCH IN";
+                 break;
+        case IO:  name = "INCH OUT";
+        		 break;
+        case OTS:  name = "ON THE SPOT";
+        		 break;
+        case S:   name = "SWITCH";
+        		 break;
+        case SU:  name = "STEP UP";
+        		 break;
+        case SO:  name = "STEP OUT";
+        		 break;
+		}
+		return name;
+	}
+	
+	public static String getKickName(Tech type) {
+		String kick = "";
+		Tech ty = type;
+		switch (ty) {
+        case BL:  kick = "BACK LEG";
+                 break;
+        case BLA:  kick = "BACK LEG AXE";
+                 break;
+        case BLCu:  kick = "BACK LEG CUT";
+                 break;
+        case BLCr:  kick = "BACK LEG CRESCENT";
+                 break;
+        case RK:  kick = "RUNNING KICK";
+                 break;
+        case RA:  kick = "RUNNING AXE";
+                 break;
+        case FF:  kick = "FRONT FOOT";
+                 break;
+        case RCu:  kick = "RUNNING CUT";
+                 break;
+        case RCr:  kick = "RUNNING CRESCENT";
+                 break;
+        case SH: kick = "SPIN HOOK";
+                 break;
+        case JT: kick = "JUMPING RUNNING";
+                 break;
+        case BK: kick = "BACK KICK";
+                 break;
+        default: kick = "";
+                 break;
+		}
+		
+		return kick;
+	}
+	
+	
+	public static void main(String args[]) {
+	
+		Action a = new Action(null, null, null, null, null);
+		System.out.println(a.toString());
+	}
+	
+	
+	
+	
+	public Action(Move move, Side side, Area tar, Tech tech, Agg agg) {
+		this.setmMovement(move);
+		this.setmSide(side);
+		this.setmTarget(tar);
+		this.setmTechnique(tech);
+		this.setmAggression(agg);
+		
+	}
+	
+	
+	
+	
+
+	
+	
+
+	public Side getmSide() {
+		return mSide;
+	}
+
+	
+	
+	public Tech getmTechnique() {
+		return mTechnique;
+	}
+
+	public void setmTechnique(Tech mTechnique) {
+		this.mTechnique = mTechnique;
+	}
+
+	public Move getmMovement() {
+		return mMovement;
+	}
+
+	public void setmMovement(Move mMovement) {
+		this.mMovement = mMovement;
+	}
+
+	
+
+	public void setmSide(Side mSide) {
+		this.mSide = mSide;
+	}
+
+	public Area getmTarget() {
+		return mTarget;
+	}
+
+	public void setmTarget(Area mTarget) {
+		this.mTarget = mTarget;
+	}
+
+	public Agg getmAggression() {
+		return mAggression;
+	}
+
+	public void setmAggression(Agg mAggression) {
+		this.mAggression = mAggression;
+	}
+
+	@Override
+	public String toString() {
+		return "[mMovement=" + getMoveName(mMovement) + ", mSide=" + mSide + ", mTarget=" + mTarget + ", mTechnique=" + getKickName(mTechnique) + ", mAggression="
+				+ mAggression + "]";
+	}
+}

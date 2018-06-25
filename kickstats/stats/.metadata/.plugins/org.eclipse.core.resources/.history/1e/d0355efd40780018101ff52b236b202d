@@ -1,0 +1,157 @@
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Round {
+	private ArrayList<Kick> mKicks = new ArrayList<Kick>();
+	private int mRoundNumber;
+	private String mFightID;
+	private DecimalFormat df = new DecimalFormat("####0.00");
+	
+	public static void main(String args[]) {
+		Round r = new Round();
+		
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 5);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 4);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 3);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 2);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), true, 1);
+		r.addKick(new Action(Action.Move.OTS, Action.Side.LEFT, Action.Area.HEAD, Action.Tech.BL, Action.Agg.ATTACK), false);
+		
+		
+		for(int i = 0; i < r.getmKicks().size(); i++)
+		{
+			System.out.println(r.getmKicks().get(i).toString());
+		}
+		System.out.println("Number of " + Action.getKickName(Action.Tech.BL) + ": " + r.getKickCountByTech(Action.Tech.BL));
+		System.out.println("Percentage of " + Action.getKickName(Action.Tech.BL) + ": " + r.getKickPercentage(Action.Tech.BL));
+		System.out.println("Number of kicks landed: " + r.getContactedKickCount());
+		System.out.println("Percentage of kicks landed: " + r.getContactedKickPercentage());
+		System.out.println("Score this round: " + r.getRoundScore());
+		r.getMostDominantKick();
+		
+		
+		
+		
+	}
+	
+	public void addKick(Action action, Boolean hit, int pts) {
+		Kick k = new Kick(action, hit, pts);
+		getmKicks().add(k);
+	}
+	
+	public void addKick(Action action, Boolean hit) {
+		Kick k = new Kick(action, false, 0);
+		getmKicks().add(k);
+	}
+	
+	public int getKickCountByTech(Action.Tech tech) {
+		int count = 0;
+		for(Kick kick:this.getmKicks()) {
+			if(kick.getmAction().getmTechnique().equals(tech)) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public int getContactedKickCount() {
+		int count = 0;
+		for(Kick kick:this.getmKicks()) {
+			if(kick.getmContact() == true) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public String getContactedKickPercentage() {
+		String percent = df.format((this.getContactedKickCount()/(double)this.getmKicks().size())*100);
+		return percent + "%";
+	}
+	
+	public String getKickPercentage(Action.Tech tech) {
+		String percent = df.format((getKickCountByTech(tech)/(double)this.getmKicks().size())*100);
+		return percent + "%";
+	}
+	
+	public int getRoundScore() {
+		int score = 0;
+		for(int i = 0; i < this.getmKicks().size(); i++) {
+			score = score + this.getmKicks().get(i).getmScore();
+		}
+		return score;
+	}
+	
+	public void getMostDominantKick()
+	{
+		ArrayList<Integer> indexArray = new ArrayList<Integer>();
+		ArrayList<Boolean> isRemovedList = new ArrayList<Boolean>();
+		ArrayList<Kick> calculatedKickArray = new ArrayList<Kick>();
+		ArrayList<Integer> kickAmountArray = new ArrayList<Integer>();
+		
+	
+		int count = 1;
+		
+		for(Kick kick: this.getmKicks()) 
+		{
+			isRemovedList.add(false);
+		}
+		
+	
+		
+			for(int i = 0; i < getmKicks().size(); i++) 
+			{
+				if(isRemovedList.get(i)==false) 
+				{
+					Kick kick1 = getmKicks().get(i);
+					isRemovedList.set(i, true);
+					
+					//System.out.println(isRemovedList.get(i));
+						
+					for(int j = i+1; j < getmKicks().size(); j++) 
+					{
+						Kick kick2 = getmKicks().get(j);
+						if(kick1.getmAction().toString().equals(kick2.getmAction().toString()) && (isRemovedList.get(j)==false)) 
+						{
+							isRemovedList.set(j, true);
+							count++;
+							
+						}
+					}
+					//System.out.println(indexArray.toString());
+					//System.out.println(isRemovedList.toString());
+					
+					calculatedKickArray.add(kick1);
+					kickAmountArray.add(count);
+					//System.out.println(kick1.toString() + count);
+					
+					//initialize both
+					count = 1;
+					
+				}
+			}
+		
+			for(int i = 0; i < kickAmountArray.size(); i++) 
+			{
+				if(kickAmountArray.get(i) == Collections.max(kickAmountArray)) 
+				{
+					System.out.println("Your most dominant kick is: " + calculatedKickArray.get(i).getmAction().toString());
+					System.out.println("It was used " + kickAmountArray.get(i) + " times");
+				}
+			}
+			
+		
+			
+		
+	}
+	
+	getHighestScoringKick()
+	{
+		can reuse part of dominant kick method
+	}
+	
+	public ArrayList<Kick> getmKicks() {
+		return this.mKicks;
+	}
+}

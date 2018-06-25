@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.sun.prism.impl.Disposer.Target"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="Kick.Target"/>
+<fullyQualifiedTypeName name="Kick.Type"/>
+<fullyQualifiedTypeName name="Kick.Move"/>
+<fullyQualifiedTypeName name="Kick.Side"/>
+<fullyQualifiedTypeName name="Kick.Agg"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+<fullyQualifiedTypeName name="Kick"/>
+<fullyQualifiedTypeName name="Kick.Tech"/>
+<fullyQualifiedTypeName name="java.lang.IndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="javafx.util.Pair"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="Action.Move"/>
+<fullyQualifiedTypeName name="Action.Area"/>
+<fullyQualifiedTypeName name="Action.Tech"/>
+<fullyQualifiedTypeName name="Action.Agg"/>
+</qualifiedTypeNameHistroy>

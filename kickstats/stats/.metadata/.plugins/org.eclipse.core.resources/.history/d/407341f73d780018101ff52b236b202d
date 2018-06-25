@@ -1,0 +1,55 @@
+public class Kick {
+
+	Action mAction;
+	Boolean mContact;
+	int mScore;
+	
+	public static void main(String[] args) 
+	{
+		
+		Kick k = new Kick(new Action(null, null, null, null, null), true);
+		System.out.println(k.toString());
+	}
+	
+	public Kick(Action action, Boolean contact) 
+	{
+		mAction = action;
+		mContact = contact;
+	}
+	
+	public Kick(Action action, Boolean contact, int score) 
+	{
+		mAction = action;
+		mContact = contact;
+		mScore = score;
+	}
+	
+	public Action getmAction() {
+		return mAction;
+	}
+	public void setmAction(Action mAction) {
+		this.mAction = mAction;
+	}
+	public Boolean getmContact() {
+		return mContact;
+	}
+	public void setmContact(Boolean mContact) {
+		this.mContact = mContact;
+	}
+	public int getmScore() {
+		return mScore;
+	}
+	public void setmScore(int mScore) {
+		this.mScore = mScore;
+	}
+	
+	@Override
+	public String toString() {
+		return "Kick [mAction=" + mAction.toString() + ", mContact=" + mContact + ", mScore=" + mScore + "]";
+	}
+	
+	
+	
+	
+	
+}
