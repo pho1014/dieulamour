@@ -30,8 +30,17 @@ public class Kick {
 	public void setmAction(Action mAction) {
 		this.mAction = mAction;
 	}
-	public Boolean getmContact() {
-		return mContact;
+	public String getmContact() {
+		String hit = " ";
+		if(mContact == true) 
+		{
+			hit = "HIT";
+		}
+		else 
+		{
+			hit = "MISS";
+		}
+		return hit;
 	}
 	public void setmContact(Boolean mContact) {
 		this.mContact = mContact;
@@ -45,7 +54,7 @@ public class Kick {
 	
 	@Override
 	public String toString() {
-		return "Kick [mAction=" + mAction + ", mContact=" + mContact + ", mScore=" + mScore + "]";
+		return getmAction() + ", " + getmContact() + ", " + getmScore() + " points";
 	}
 	
 	

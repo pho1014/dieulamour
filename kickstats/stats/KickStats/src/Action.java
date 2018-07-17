@@ -180,7 +180,7 @@ public class Action {
 
 	@Override
 	public String toString() {
-		return "[mMovement=" + getMoveName(mMovement) + ", mSide=" + mSide + ", mTarget=" + mTarget + ", mTechnique=" + getKickName(mTechnique) + ", mAggression="
-				+ mAggression + "]";
+		return  getMoveName(mMovement) + ", "  + getmSide() + ", " + getmTarget() + ", " + getKickName(mTechnique) + ", "
+				+ mAggression;
 	}
 }

@@ -6,7 +6,9 @@ public class Fight {
 	private String mDate;
 	private String mFighter;
 	private String mOpponent;
-	public String mWeightClass;
+    private String mWeightClass;
+    private String mAgeClass;
+	
 	private String mLocation;
 	private Double mDuration;
 	private List<Round> mRounds = new ArrayList<Round>();
